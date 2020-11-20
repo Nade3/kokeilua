@@ -59,7 +59,7 @@
             var firebaseRef = firebase.database().ref();
             firebaseRef.child("Viesti").push().set({
          
-                "nimi": name
+                "nimi2": name
             });
         }
 
@@ -71,7 +71,7 @@
         var rootRef = firebase.database().ref().child('Viesti');
         rootRef.on('child_added', snap => {
     
-            var name = snap.child("nimi").val();
+            var name2 = snap.child("nimi2").val();
 
 
 
@@ -79,7 +79,8 @@
 
 
 
-            $("#viestiketju").append("<p>" + name + " sanoo: " + "</p>");
+            $("#nimi").append("<p>" +name2 + "</p>");
+           
         })
 
         </script>
@@ -98,59 +99,18 @@
                     <h2>Henkilötiedot</h2>
                         <label for="nimi">Nimi</label><br>
                         <input class="luku" type="text" id="nimi" name="nimi" value="Erkki Ernest Esimerkki" ><br>
-                        <label for="puh">Puh.</label><br>
-                        <input class="muokkaus" class="modify" type="text" id="puh" name="puh" value="045 1234 567"><br>
-                        <label for="email">Sähköposti</label><br>
-                        <input class="muokkaus" type="text" id="email" name="email" value="erkki.esimerkki@gmail.com"><br>
-                        <label for="osoite">Katuosoite</label><br>
-                        <input class="muokkaus" type="text" id="osoite" name="osoite" value="Kukkakuja 3"><br>
-                        <label for="postnum">Postinumero</label><br>
-                        <input class="muokkaus" type="text" id="postnum" name="postnum" value="00100"><br>
-                        <label for="postitmp">Postitoimipaikka</label><br>
-                        <input class="muokkaus" type="text" id="postitmp" name="postitmp" value="Helsinki"><br>
+                   
                         <button  onclick="laheta()" class="submit" id="submit">Tallenna muutokset</button>
                 </div>
                 
-                <div class="flex_item">
-                    <h2>Työsuhteen teidot</h2>
-                        <label for="alkupvm">Työsuhteen alkamispäivä</label><br>
-                        <input class="luku" type="text" id="alkupvm" name="alkupvm" value="01/11/2009" readonly><br>
-                        <label for="tyosuhde">Työsuhde</label><br>
-                        <input class="luku" type="text" id="tyosuhde" name="tyosuhde" value="Vakituinen" readonly><br>
-                        <label for="nimike">Nimike</label><br>
-                        <input class="luku" type="text" id="nimike" name="nimike" value="Sairaanhoitaja" readonly><br>
-                        <label for="osasto">Osasto</label><br>
-                        <input class="luku" type="text" id="osasto" name="osasto" value="xxxx" readonly><br>
-                        <label for="esimies">Esimies</label><br>
-                        <input class="luku" type="text" id="esimies" name="esimies" value="Paula Pomo" readonly><br>
-                </div>
+              
                 
             </div>
+            <div id=viestiketju> </div>
             
         </section>
         
-        <script>
-            /*Tietojen "tallentaminen"*/
-            var submit = document.getElementById("submit");
-            
-            submit.onClick = function tallenna() {
-                var puh = document.getElementById("puh").value;
-                var email = document.getElementById("email").value;
-                var osoite = document.getElementById("osoite").value;
-                var postnum = document.getElementById("postnum").value;
-                var postitmp = document.getElementById("postitmp").value;
-                
-                document.getElementById("puh").innerText = puh;
-                document.getElementById("email").innerText = email;
-                document.getElementById("osoite").innerText = osoite;
-                document.getElementById("postnum").innerText = postnum;
-                document.getElementById("postitmp").innerText = postitmp;
-                
-            }
-            
-        </script>
-        
-       
+      
   
     
 
